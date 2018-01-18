@@ -8,19 +8,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
+/**
+ * Base components
+ * **/
 var app_component_1 = require("./app.component");
+var common_1 = require("@angular/common");
+var app_routing_module_1 = require("./app-routing.module");
+/**
+ * External components
+ * **/
+var home_component_1 = require("./components/home/home.component");
+var policies_component_1 = require("./components/policies/policies.component");
+var menu_component_1 = require("./components/menu/menu.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                home_component_1.HomeComponent,
+                policies_component_1.PoliciesComponent,
+                menu_component_1.MenuComponent
             ],
             imports: [
-                platform_browser_1.BrowserModule
+                platform_browser_1.BrowserModule,
+                app_routing_module_1.AppRoutingModule
             ],
-            providers: [],
+            providers: [
+                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
